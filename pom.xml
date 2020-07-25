@@ -37,6 +37,12 @@
             <artifactId>webdrivermanager</artifactId>
             <version>${webdrivermanager.version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.appium</groupId>
+            <artifactId>mitmproxy-java</artifactId>
+            <version>${mitmproxy-java.version}</version>
+        </dependency>
+
     </dependencies>
 
     <properties>
@@ -45,6 +51,7 @@
         <testng.version>7.1.0</testng.version>
         <selenium-java.version>3.141.59</selenium-java.version>
         <webdrivermanager.version>4.0.0</webdrivermanager.version>
+        <mitmproxy-java.version>2.0.1</mitmproxy-java.version>
     </properties>
 
 </project>
