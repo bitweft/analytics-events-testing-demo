@@ -1,11 +1,9 @@
 package com.viu;
 
+import com.viu.helpers.DriverHelper;
 import com.viu.helpers.ProxyHelper;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
@@ -14,26 +12,21 @@ import java.util.concurrent.TimeoutException;
 
 public class BaseTest {
     protected WebDriver driver;
-    private final ProxyHelper proxyHelper = new ProxyHelper();
 
     @BeforeSuite
-    public void setup() {
-        WebDriverManager.chromedriver().setup();
+    public void initialSetup() throws IOException, TimeoutException {
+        ProxyHelper.startProxy();
+        driver = DriverHelper.getDriverWithProxyConfigured();
     }
 
     @BeforeMethod
-    public void setupBeforeMethod() throws IOException, TimeoutException {
-        ChromeOptions options = new ChromeOptions();
-
-        proxyHelper.setProxyIn(options);
-        proxyHelper.captureMessagesWithPath("/log");
-
-        driver = new ChromeDriver(options);
+    public void setup() {
+        ProxyHelper.clearMessages();
     }
 
-    @AfterMethod
-    public void tearDown() {
-        proxyHelper.stopProxy();
+    @AfterSuite
+    public void tearDown() throws InterruptedException {
+        ProxyHelper.stopProxy();
         driver.quit();
     }
 }
