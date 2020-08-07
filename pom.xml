@@ -42,6 +42,11 @@
             <artifactId>mitmproxy-java</artifactId>
             <version>${mitmproxy-java.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>${json.version}</version>
+        </dependency>
 
     </dependencies>
 
@@ -52,6 +57,7 @@
         <selenium-java.version>3.141.59</selenium-java.version>
         <webdrivermanager.version>4.0.0</webdrivermanager.version>
         <mitmproxy-java.version>2.0.1</mitmproxy-java.version>
+        <json.version>20200518</json.version>
     </properties>
 
 </project>

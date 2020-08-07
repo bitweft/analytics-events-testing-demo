@@ -28,4 +28,8 @@ public class ProxyHelper {
     public static void clearMessages() {
         interceptedMessages.clear();
     }
+
+    public static List<InterceptedMessage> getInterceptedMessages() {
+        return interceptedMessages;
+    }
 }
