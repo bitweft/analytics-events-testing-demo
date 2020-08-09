@@ -1,0 +1,31 @@
+[
+  {
+    "eventName": "APP_LAUNCH",
+    "keysPresenceMatch": [],
+    "exactMatch": []
+  },
+  {
+    "eventName": "page_view",
+    "keysPresenceMatch": [],
+    "exactMatch": []
+  },
+  {
+    "eventName": "video_start",
+    "keysPresenceMatch": [
+      "content_form",
+      "content_type",
+      "player_version"
+    ],
+    "exactMatch": []
+  },
+  {
+    "eventName": "video_stream_raw",
+    "keysPresenceMatch": [],
+    "exactMatch": [
+      {
+        "key": "content_form",
+        "value": "short"
+      }
+    ]
+  }
+]
