@@ -1,6 +1,7 @@
 package com.viu;
 
 import com.viu.helpers.AnalyticsEventsVerifier;
+import com.viu.helpers.ProxyHelper;
 import com.viu.models.AnalyticsEvent;
 import com.viu.models.ExpectedEventDetails;
 import com.viu.pages.HomePage;
@@ -14,11 +15,12 @@ import static com.viu.helpers.AnalyticsExpectationsHelper.getExpectedEventDetail
 
 public class VideoStreamTest extends BaseTest {
     @Test
-    public void shouldBeAbleToStreamVideo() {
+    public void shouldBeAbleToStreamVideo() throws InterruptedException {
         new HomePage(driver)
                 .selectVideoAtPosition(0)
                 .play();
 
+        ProxyHelper.stopProxy();
         verifyAnalyticsEvents();
     }
 

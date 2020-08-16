@@ -14,6 +14,8 @@ public class ProxyHelper {
     private static final String mitmProxyPath = "/Library/Frameworks/Python.framework/Versions/3.8/bin/mitmdump";
 
     public static void startProxy() throws IOException, TimeoutException {
+        clearMessages();
+
         proxy = new MitmproxyJava(mitmProxyPath, (InterceptedMessage message) -> {
             interceptedMessages.add(message);
             return message;
@@ -25,11 +27,11 @@ public class ProxyHelper {
         proxy.stop();
     }
 
-    public static void clearMessages() {
-        interceptedMessages.clear();
-    }
-
     public static List<InterceptedMessage> getInterceptedMessages() {
         return interceptedMessages;
+    }
+
+    private static void clearMessages() {
+        interceptedMessages.clear();
     }
 }
