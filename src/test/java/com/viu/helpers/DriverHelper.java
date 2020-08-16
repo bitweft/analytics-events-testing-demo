@@ -20,8 +20,8 @@ public class DriverHelper {
         ChromeOptions options = new ChromeOptions();
         options.setProxy(proxy);
         options.setCapability("proxy", proxy);
-        options.setAcceptInsecureCerts(true);
         options.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+        options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
 
         return options;
     }
